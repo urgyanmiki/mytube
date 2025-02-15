@@ -1,0 +1,106 @@
+body {
+    background: $black;
+    font-family: $font-family-name, sans-serif;
+    color: $white;
+    //font-size: $mobileFontSize;
+    font-size: $mobile-font-size;
+    font-weight: $regular-weight;
+    line-height: $default-line-height;
+    margin: 0;
+    letter-spacing: 0.35px;
+
+    @media (min-width: 992px) {
+        font-size: $desktop-font-size;
+    }
+}
+
+body:has(.fixed-header){
+    section{
+        &:nth-child(1){
+            padding: 106px 0 40px;
+        }
+
+        .hero-carousel-section{
+            padding: 106px 0 40px;
+        }
+
+        @media (min-width: 992px) {
+            &:nth-child(1){
+                padding: 142px 0 60px;
+            }
+
+            .hero-carousel-section{
+                padding: 142px 0 60px;
+            }
+        }
+    }
+}
+
+section {
+    scroll-margin-top: 60px;
+    padding: 40px 0;
+
+    @media (min-width: 992px) {
+        scroll-margin-top: 70px;
+        padding: 60px 0;
+    }
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: unset;
+
+    @media (min-width: 992px) {
+        font-size: 32px;
+    }
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: unset;
+
+    @media (min-width: 992px) {
+        font-size: 28px;
+    }
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: unset;
+
+    @media (min-width: 992px) {
+        font-size: 22px;
+    }
+}
+
+a {
+    color: $black;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+
+    &:hover {
+        color: $main-dark-color;
+        text-decoration: none;
+    }
+
+    &.light {
+        color: $white;
+
+        &:hover {
+            color: lighten($main-color, 5%);
+        }
+    }
+
+    &.hover-underline {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+p{
+    margin: unset;
+}

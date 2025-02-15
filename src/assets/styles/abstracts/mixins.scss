@@ -1,0 +1,68 @@
+@mixin dotted-lines($count-of-lines) {
+    display: -webkit-box;
+    -webkit-line-clamp: $count-of-lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin max-line($count-of-lines) {
+    overflow-y: auto;
+    max-height: $default-line-height * $mobile-font-size * $count-of-lines;
+
+    @media (min-width: 992px) {
+        max-height: $default-line-height * $desktop-font-size * $count-of-lines;
+    }
+}
+
+@mixin flag($country) {
+    .flag-#{$country} {
+        background-image: icon('flags/'#{$country}'.svg');
+        background-repeat: no-repeat;
+        height: 17px;
+    }
+}
+
+@mixin color-helpers($class-name, $color) {
+    .fc-#{$class-name} {
+        color: $color !important;
+    }
+
+    .bg-#{$class-name} {
+        background-color: $color !important;
+    }
+
+    .border-#{$class-name} {
+        border: 1px solid $color !important;
+    }
+}
+
+@mixin circle($radius, $color) {
+    width: $radius;
+    height: $radius;
+    border-radius: 50%;
+    background: $color;
+}
+
+@mixin square($width, $color) {
+    width: $width;
+    height: $width;
+    background: $color;
+}
+
+@mixin pseudo($width: 100%, $height: 100%, $display: inline-block, $pos: absolute, $content: "" ) {
+    width: $width;
+    height: $height;
+    display: $display;
+    position: $pos;
+    content: $content;
+}
+
+@mixin font-face($font-weight, $font-style: normal, $font-family: $font-family-name){
+    @font-face {
+        font-family: $font-family-name;
+        src: font("#{$font-family-name}#{$font-weight}.woff2");
+        font-weight: $font-weight;
+        font-style: $font-style;
+        font-display: swap;
+    }
+}

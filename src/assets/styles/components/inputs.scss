@@ -1,0 +1,194 @@
+// webkits
+select::-ms-expand {
+    display: none;
+}
+
+input[type="date"][value=""]:before {
+    white-space: nowrap;
+    content: 'Válaszd ki a dátumot' !important;
+}
+
+/*input[type="date"]:focus:before {
+    content: '' !important;
+}*/
+
+input[type="date"] {
+    display: flex;
+}
+
+input[type='datetime-local'][value=''] {
+    &:after {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        height: auto;
+        width: calc(100% - 40px);
+        content: "Időpont";
+        background-color: #fff;
+        color: lighten($black, 25%);
+        padding: 12px 10px;
+        z-index: 0;
+    }
+}
+
+input::-webkit-calendar-picker-indicator {
+    //transform: scale(1.4);
+    cursor: pointer;
+    //background: transparent;
+    color: transparent;
+    text-align: right;
+    background-position: right;
+    background-size: 24px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 5px;
+    top: 0;
+    height: auto;
+    width: auto;
+    z-index: 1;
+}
+
+//bootstrap resets
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: $main-color;
+    background-color: $main-color;
+}
+
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    background-color: $main-color;
+    border-color: lighten($main-color, 25%);
+}
+
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+    border-color: lighten($main-color, 25%);
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+    //box-shadow: 0 0 0 0.2rem #d91d493e;
+    box-shadow: none;
+}
+
+.custom-control-label:not(.switch-label)::after, .custom-control-label:not(.switch-label)::before {
+    top: 1px;
+}
+
+
+.custom-control-label:not(.switch-label)::before {
+    border: 1px solid $main-color;
+}
+
+.custom-switch .custom-control-label::before {
+    transform: scale(1.05);
+}
+
+input[type="range"]{
+    accent-color: $third-color;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+
+    @media (min-width: 992px) {
+        margin-bottom: 16px;
+    }
+}
+
+.search-input-box{
+    position: relative;
+
+    input{
+        width: 100%;
+        max-width: 430px;
+        background: $main-color;
+        color: $white;
+        border: 0;
+        padding: 8px 46px;
+        border: 1px solid $gray;
+        border-radius: 6px;
+        font-size: 18px;
+        transition: background-color 0.15s ease-in-out;
+
+        &:focus{
+            border: unset;
+            background: transparent;
+            border: 1px solid $gray;
+            outline: 0;
+        }
+    }
+
+    .search-icon{
+        position: absolute;
+        height: 24px;
+        left: 10px;
+        top: -2px;
+    }
+
+    .delete-icon{
+        position: absolute;
+        height: 24px;
+        right: 10px;
+        top: -2px;
+    }
+}
+
+//inputs
+.default-input {
+    border-radius: 0;
+    background: transparent;
+    color: $white;
+    font-size: 16px;
+    border: unset;
+    letter-spacing: 0.35px;
+    padding: 12px 9px;
+    height: auto;
+    border-bottom: 1px solid $white;
+    transition: 0.15s;
+    font-weight: 500;
+
+    &:focus {
+        outline: unset;
+        border: unset;
+        border-bottom: 1px solid $third-color;
+        color: $white;
+        box-shadow: unset;
+    }
+
+    &::placeholder {
+        color: $white + a1;
+    }
+
+    #application > * & {
+        background: darken($white, 2%);
+
+        &:focus{
+            background: darken($white, 3%);
+        }
+    }
+}
+
+.custom-checkbox {
+    .custom-control-label::after, .custom-control-label::before {
+        top: unset;
+        border-radius: unset;
+    }
+}
+
+.custom-radio {
+    .custom-control-label::after, .custom-control-label::before {
+        top: unset;
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-control-label:not(.switch-label)::after, .custom-control-label:not(.switch-label)::before {
+        top: 2px;
+    }
+
+    .default-input {
+        font-size: $desktop-font-size;
+    }
+}

@@ -1,0 +1,17 @@
+$base: '../';
+
+@function asset($type, $path) {
+    @return url($base + $type + $path);
+}
+
+@function image($path) {
+    @return asset('images/', $path);
+}
+
+@function icon($path) {
+    @return asset('icons/', $path);
+}
+
+@function font($path) {
+    @return asset('fonts/', $path);
+}

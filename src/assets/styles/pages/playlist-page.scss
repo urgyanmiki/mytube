@@ -1,0 +1,13 @@
+.playlist-page{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+
+    .descriptiton{
+        max-width: 350px;
+
+        .playlist-img{
+            width: 100%;
+        }
+    }
+}

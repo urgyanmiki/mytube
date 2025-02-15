@@ -1,0 +1,91 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100%;
+    border-right: 1px solid $gray;
+    padding: 12px 8px;
+    font-size: 16px;
+
+    @media (min-width: 992px) {
+        font-size: 18px;
+    }
+
+    .branding {
+        border-bottom: 1px solid $gray;
+        padding: 4px 0;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 6px 0;
+        border-bottom: 1px solid $gray;
+
+        a {
+            border-radius: 12px;
+            padding: 12px 18px;
+            transition: background-color 0.15s ease-in-out;
+            cursor: pointer;
+            line-height: 1;
+            color: $white;
+
+            &:hover {
+                background-color: $main-color;
+            }
+
+            &.active{
+                background-color: $main-color;
+                color: $white;
+            }
+        }
+    }
+
+    .playlists{
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 6px 0;
+
+        .playlist {
+            position: relative;
+            border-radius: 12px;
+            padding: 12px 18px;
+            line-height: 1;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+
+            .play-icon{
+                display: none;
+                position: absolute;
+                top: calc(50% - 14px);
+                right: 8px;
+                height: 20px;
+                padding: 4px;
+                z-index: 2;
+            }
+
+            &:hover {
+                background-color: $main-color;
+
+                .play-icon{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.navbar{
+    position: fixed;
+    left: 266px;
+    top: 0;
+    width: calc(100% - 300px);
+    background: $main-color;
+    border-bottom: 1px solid $gray;
+    // For perfect fit
+    padding: 11.5px 0;
+    background: $black;
+}

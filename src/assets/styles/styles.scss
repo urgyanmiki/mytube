@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+// 1. Abstracts
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/animations";
+
+// 2. Base
+@import "base/fonts";
+@import "base/base";
+@import "base/helpers";
+
+// 3. components
+@import "components/buttons";
+@import "components/inputs";
+@import "components/modals"; 
+
+@import "components/cards";
+@import "components/images";
+@import "components/boxes";
+
+@import "components/music-player";
+
+// 4. layout
+@import "layout/footer";
+@import "layout/header";
+
+// 5. pages
+@import "pages/playlist-page.scss";
+
+

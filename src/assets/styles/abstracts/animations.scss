@@ -1,0 +1,57 @@
+@keyframes slide-animation {
+    0% {
+        left: 5px;
+        background: #00000021;
+        transform: rotateZ(-10deg);
+    }
+    50% {
+        left: calc(100% - 29px);
+        background: #00000000;
+        transform: rotateZ(20deg);
+    }
+    100% {
+        left: 5px;
+        background: #00000016;
+        transform: rotateZ(-10deg);
+    }
+}
+
+@keyframes slide-animation-dark {
+    0% {
+        left: 5px;
+        background: #00000021;
+        transform: rotateZ(-10deg);
+    }
+    50% {
+        left: calc(100% - 29px);
+        background: #00000000;
+        transform: rotateZ(20deg);
+    }
+    100% {
+        left: 5px;
+        background: #00000016;
+        transform: rotateZ(-10deg);
+    }
+}
+
+@keyframes circle-move-top {
+    0%, 100% {
+        left: 15px;
+        top: 15px;
+    }
+    60% {
+        left: -10px;
+        top: 28px;
+    }
+}
+
+@keyframes circle-move-bottom {
+    0%, 100% {
+        right: 15px;
+        bottom: 15px;
+    }
+    50% {
+        right: -10px;
+        bottom: 30px;
+    }
+}
