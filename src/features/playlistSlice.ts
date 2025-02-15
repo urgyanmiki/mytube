@@ -27,14 +27,31 @@ const playlistSlice = createSlice({
         toggleShowAddToPlaylistModal: (state) => {
             state.showAddToPlayListModal = !state.showAddToPlayListModal
         },
-        addToPlaylist: (state, action: PayloadAction<{ id: string, song: Song }>) => {
+        addToPlaylist: (state, action: PayloadAction<{ id: number, song: Song }>) => {
             const playlist = state.playlists.find((p) => p.id === action.payload.id);
             if (playlist) {
                 playlist.songs.push(action.payload.song);
+            }
+        },
+        updatePlaylist: (state, action: PayloadAction<{ id: number, title: string, description: string }>) => {
+            const playlist = state.playlists.find((p) => p.id === action.payload.id);
+
+            if(playlist){
+                playlist.title = action.payload.title;
+                playlist.description = action.payload.description;
+            }
+
+        },
+        removeFromPlaylist: (state, action: PayloadAction<{playlistId: number, songId: string}> ) => {
+            let playlist = state.playlists.find((p) => p.id === action.payload.playlistId);
+
+            if(playlist){
+                playlist.songs = playlist.songs.filter((s) => s.id !== action.payload.songId);
+                // playlist.splice(playlist.findIndex(playlist.songs.find((s) => s.id === action.payload.songId)), 1);
             }
         }
     }
 });
 
 export default playlistSlice.reducer;
-export const { toggleShowAddPlaylistModal, addPlaylist, toggleShowAddToPlaylistModal, addToPlaylist } = playlistSlice.actions;
+export const { toggleShowAddPlaylistModal, addPlaylist, toggleShowAddToPlaylistModal, addToPlaylist, removeFromPlaylist, updatePlaylist } = playlistSlice.actions;

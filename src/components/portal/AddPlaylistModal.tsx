@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Playlist } from '../../types';
 import { useRef } from 'react';
+import { getRandNumb } from '../../utils/utils';
 
 interface AddPlaylistModalProps {
     handleOnCloseModal: () => void,
@@ -14,7 +15,7 @@ export const AddPlaylistModal = ({ handleOnCloseModal, handleOnAddPlaylist }: Ad
 
     const onAddPlaylist = () => {
         const newPlaylist = {
-            id: `${Math.random() * Math.random() * 100}`,
+            id: getRandNumb(),
             title: titleInput.current.value,
             description: descriptionInput.current.value,
             songs: []

@@ -3,17 +3,18 @@ import { faCirclePlay, faCircleArrowRight } from '@fortawesome/free-solid-svg-ic
 import { useNavigate } from 'react-router-dom';
 
 interface PlaylistProps {
+    id: number,
     img: string,
     title: string,
     description: string,
     handleStartPlaylist: () => void,
 }
 
-export const Playlist = ({ img, title, description, handleStartPlaylist }: PlaylistProps) => {
+export const Playlist = ({ id, img, title, description, handleStartPlaylist }: PlaylistProps) => {
     const navigate = useNavigate();
 
     const openPlaylist = () => {
-        const path = `/playlist/${title}`;
+        const path = `/playlists/${id}`;
         navigate(path)
     }
 

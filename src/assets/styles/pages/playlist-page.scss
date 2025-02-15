@@ -2,12 +2,76 @@
     display: flex;
     justify-content: start;
     align-items: start;
+    gap: 60px;
 
     .descriptiton{
         max-width: 350px;
 
         .playlist-img{
             width: 100%;
+            border-radius: 18px;
+        }
+
+        .update-playlist{
+            padding: 8px;
+            border-radius: 6px;
+            background: $gray + a1;
+            cursor: pointer;
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            transition: background-color 0.2s ease-in-out;
+
+            svg{
+                width: 20px;
+            }
+
+            &:hover{
+                background: $gray;
+            }
+        }
+    }
+
+    .song-list{
+        width: 100%;
+        max-width: 540px;
+
+
+        .song-row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 16px;
+            width: 100%;
+    
+            .song-title-img{
+                display: flex;
+                align-items: center;
+                gap: 18px;
+
+                img{
+                    border-radius: 12px;
+                    height: 90px;
+                }
+        
+                .title{
+                    font-size: 20px;
+                    margin-bottom: 8xp;
+                }
+
+                .description {
+                    font-size: 16px;
+                    color: #b2b4b4;
+                }
+            }
+
+            .start-list-icon{
+                height: 24px;
+                padding: 2px;
+                margin:0 6px;
+                cursor: pointer;
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ export const Playlists = () => {
             playlistArr.push(
                 <Playlist
                     key={playlist.id}
+                    id={playlist.id}
                     title={playlist.title}
                     description={playlist.description}
                     img={playlist.songs.length > 0? playlist.songs[0].image : 'https://placehold.co/400'}
