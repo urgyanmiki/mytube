@@ -32,9 +32,17 @@ const playlistSlice = createSlice({
             if (playlist) {
                 playlist.songs.push(action.payload.song);
             }
+        },
+        removeFromPlaylist: (state, action: PayloadAction<{playlistId: string, songId: string}> ) => {
+            const playlist = state.playlists.find((p) => p.id === action.payload.playlistId);
+
+            if(playlist){
+                // playlist.songs.find((s) => s.id !== action.payload.songId);
+                // playlist.splice(playlist.findIndex(playlist.songs.find((s) => s.id === action.payload.songId)), 1);
+            }
         }
     }
 });
 
 export default playlistSlice.reducer;
-export const { toggleShowAddPlaylistModal, addPlaylist, toggleShowAddToPlaylistModal, addToPlaylist } = playlistSlice.actions;
+export const { toggleShowAddPlaylistModal, addPlaylist, toggleShowAddToPlaylistModal, addToPlaylist, removeFromPlaylist } = playlistSlice.actions;

@@ -14,6 +14,7 @@ export const Sidebar = () => {
 
     const dispatch = useDispatch();
 
+    // TODO: ID alapján kérje ki
     const handleStartPlaylist = (playlist: Playlist) => {
         // if(playlist.songs.length > 0){
         //     dispatch(playSong(playlist.songs[0]))
