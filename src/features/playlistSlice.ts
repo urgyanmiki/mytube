@@ -47,7 +47,6 @@ const playlistSlice = createSlice({
 
             if(playlist){
                 playlist.songs = playlist.songs.filter((s) => s.id !== action.payload.songId);
-                // playlist.splice(playlist.findIndex(playlist.songs.find((s) => s.id === action.payload.songId)), 1);
             }
         }
     }

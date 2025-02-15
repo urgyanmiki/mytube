@@ -35,9 +35,6 @@ const Playlist = () => {
                 <div className="descriptiton">
                     <div className="position-relative mb-4">
                         <img src={selectedPlaylist.songs.length > 0 ? selectedPlaylist.songs[0].image : 'https://placehold.co/400'} alt="" className="playlist-img" />
-                        {/* <span className="update-playlist">
-                            <FontAwesomeIcon icon={faPen} />
-                        </span> */}
                     </div>
                     <div className="mb-4">
                         {!isEdit ?

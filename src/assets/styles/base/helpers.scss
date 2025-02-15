@@ -365,3 +365,9 @@
 .w-100{
     width: 100%;
 }
+
+.genre-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
