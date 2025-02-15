@@ -9,6 +9,26 @@
 
         .playlist-img{
             width: 100%;
+            border-radius: 18px;
+        }
+
+        .update-playlist{
+            padding: 8px;
+            border-radius: 6px;
+            background: $gray + a1;
+            cursor: pointer;
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            transition: background-color 0.2s ease-in-out;
+
+            svg{
+                width: 20px;
+            }
+
+            &:hover{
+                background: $gray;
+            }
         }
     }
 

@@ -47,7 +47,7 @@ export interface PlayerInitialState {
 }
 
 export interface Playlist {
-    id: string
+    id: number
     title: string
     description: string
     songs: Array<Song>

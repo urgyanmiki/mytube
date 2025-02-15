@@ -4,15 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 
 interface SidebarPlaylistProps {
+    id: number,
     title: string,
     handleStartPlaylist: () => void
 }
 
-export const SidebarPlaylist = ({ title, handleStartPlaylist }: SidebarPlaylistProps) => {
+export const SidebarPlaylist = ({ id, title, handleStartPlaylist }: SidebarPlaylistProps) => {
     const navigate = useNavigate();
 
     const onNavigate = () => {
-        const path = `playlists/${title}`;
+        const path = `playlists/${id}`;
         navigate(path)
     }
 

@@ -42,6 +42,7 @@ export const Sidebar = () => {
                     <SidebarPlaylist
                         key={playlist.id}
                         title={playlist.title}
+                        id={playlist.id}
                         handleStartPlaylist={() => handleStartPlaylist(playlist)}
                     />
                 ))}
