@@ -279,6 +279,8 @@
 @include color-helpers('broken-white', lighten($broken-white, 0.8%));
 
 .container {
+    position: relative;
+    z-index: 2;
     padding: 0 15px;
 
     @media (min-width: 576px) {

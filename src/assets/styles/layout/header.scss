@@ -1,5 +1,6 @@
 .sidebar {
     position: fixed;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 240px;
@@ -7,6 +8,7 @@
     border-right: 1px solid $gray;
     padding: 12px 8px;
     font-size: 16px;
+    background: $black;
 
     @media (min-width: 992px) {
         font-size: 18px;
@@ -80,9 +82,9 @@
 
 .navbar{
     position: fixed;
-    left: 266px;
+    left: 257px;
     top: 0;
-    width: calc(100% - 300px);
+    width: calc(100% - 257px);
     background: $main-color;
     border-bottom: 1px solid $gray;
     // For perfect fit
