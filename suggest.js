@@ -1,0 +1,1 @@
+export const suggestList = { "hints": [{ "term": "mask off" }, { "term": "masked wolf" }, { "term": "maskdownmar" }, { "term": "mask off remix" }, { "term": "masked wolf astronaut in the ocean" }, { "term": "the mask soundtrack" }, { "term": "mask" }, { "term": "mask on" }, { "term": "mask off 퓨처" }, { "term": "ski mask the slump god" }] }

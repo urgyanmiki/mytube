@@ -8,6 +8,8 @@ import { Home } from "./pages/Home"
 import { Playlists } from "./pages/Playlists"
 import Playlist from "./pages/Playlist"
 import { useAppSelector } from "./store/hook"
+import { Genre } from "./pages/Genre"
+import { Artist } from "./pages/Artist"
 
 function App() {
   const { isPlayerActive } = useAppSelector((state) => state.musicPlayer);
@@ -19,8 +21,11 @@ function App() {
         <Navbar />
 
         <div className="page-content">
+          <img src="/bg.png" alt="" className="bg-img" />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/artist/:artist" element={<Artist />} />
+            <Route path="/genre/:genreId" element={<Genre />} />
             <Route path="/playlists" element={<Playlists />} />
             <Route path="/playlists/:playlistId" element={<Playlist />} />
             <Route path="*" element={<Home />} />

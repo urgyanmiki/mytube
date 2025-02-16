@@ -23,11 +23,6 @@ interface SongHub {
     actions: Array<SongAction>
 }
 
-interface ArtistAttribute {
-    name: string
-    bornOrFormed: string
-    artistBio: string
-}
 
 export interface Song {
     id: string
@@ -53,8 +48,21 @@ export interface Playlist {
     songs: Array<Song>
 }
 
+export interface Album {
+    id: number
+    artistName: string // attributes.artistName
+    name: string // attributes.releaseDate
+    image: string // attributes.editorialArtwork.superHeroTall.url
+    releasteDate: string // attributes.releaseDate
+    copyright: string // attributes.copyright
+}
+
 export interface Artist {
-    id: number,
-    attributes: ArtistAttribute
+    id: number
+    name: string // attributes.name
+    origin: string // attributes.origin
+    bio: string // attributes.artistBio
+    genres: Array<string> // attributes.genreNames
+    albums: Array<Album> // attributes.views.full-albums.data
     avatar: string
 }

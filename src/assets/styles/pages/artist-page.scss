@@ -1,0 +1,15 @@
+.artist-page{
+
+    .artist-bio{
+        display: flex;
+        gap: 70px;
+        align-items: center;
+        justify-content: center;
+        .artist-image{
+            border-radius: 50%;
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+        }
+    }
+}

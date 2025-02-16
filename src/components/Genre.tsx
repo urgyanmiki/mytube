@@ -9,7 +9,7 @@ export const Genre = ({title, value}: GenreProps) => {
     const navigate = useNavigate();
 
     const navigateGenre = (value: string) => {
-        const path = `genre/${value}`;
+        const path = `/genre/${value}`;
         navigate(path)
     }
 
