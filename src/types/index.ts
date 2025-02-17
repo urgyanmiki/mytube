@@ -2,27 +2,10 @@ interface SongGenre {
     primary: string
 }
 
-interface SongImage {
-    background: string
-    coverart: string
-}
-
 interface SongArtist {
     alias: string
     id: string
 }
-
-interface SongAction {
-    name: string
-    type: string
-    id?: string
-    uri?: string
-}
-
-interface SongHub {
-    actions: Array<SongAction>
-}
-
 
 export interface Song {
     id: string
@@ -33,12 +16,6 @@ export interface Song {
     releaseDate: string
     artists?: Array<SongArtist>
     audioSrc: string
-}
-
-export interface PlayerInitialState {
-    queuedSongs: Array<Song>
-    isPlaying: boolean
-    genreId?: string
 }
 
 export interface Playlist {

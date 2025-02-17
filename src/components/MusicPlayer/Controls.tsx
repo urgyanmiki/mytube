@@ -3,7 +3,7 @@ import { faBackwardStep, faCirclePause, faForwardStep, faPlay } from '@fortaweso
 import { useEffect, useRef } from 'react';
 
 interface ControlsProps {
-    isPlaying: boolean
+    isPlaying: boolean,
     handlePlayPause: () => void,
     handleNextSong: () => void,
     handlePrevSong: () => void,

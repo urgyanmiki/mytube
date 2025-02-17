@@ -20,28 +20,29 @@ export const SongInfo = ({ isPlaying, volume, handleShowAddToPlayList, onSetCurr
     const duration = audioRef.current?.duration;
 
     useEffect(() => {
-            onSetDuration(duration);
-            audioRef.current.currentTime = 0;
+        onSetDuration(duration);
+        audioRef.current.currentTime = 0;
     }, [actualSong]);
 
     useEffect(() => {
-            audioRef.current.currentTime = seekTime;
+        audioRef.current.currentTime = seekTime;
     }, [seekTime]);
 
+    // isActive változik akkro is renderelődjön
     useEffect(() => {
-            if (isPlaying) {
-                audioRef.current.play();
-            } else {
-                audioRef.current.pause();
-            }
+        if (isPlaying) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+        }
     }, [isPlaying])
 
     useEffect(() => {
-            audioRef.current.volume = volume;
+        audioRef.current.volume = volume;
     }, [volume]);
 
     const updateTime = () => {
-            onSetCurrentTime(audioRef.current.currentTime);
+        onSetCurrentTime(audioRef.current.currentTime);
     }
 
     return (

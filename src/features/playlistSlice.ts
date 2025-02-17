@@ -24,15 +24,6 @@ const playlistSlice = createSlice({
         addPlaylist: (state, action: PayloadAction<Playlist>) => {
             state.playlists.push(action.payload)
         },
-        toggleShowAddToPlaylistModal: (state) => {
-            state.showAddToPlayListModal = !state.showAddToPlayListModal
-        },
-        addToPlaylist: (state, action: PayloadAction<{ id: number, song: Song }>) => {
-            const playlist = state.playlists.find((p) => p.id === action.payload.id);
-            if (playlist) {
-                playlist.songs.push(action.payload.song);
-            }
-        },
         updatePlaylist: (state, action: PayloadAction<{ id: number, title: string, description: string }>) => {
             const playlist = state.playlists.find((p) => p.id === action.payload.id);
 
@@ -41,6 +32,15 @@ const playlistSlice = createSlice({
                 playlist.description = action.payload.description;
             }
 
+        },
+        toggleShowAddToPlaylistModal: (state) => {
+            state.showAddToPlayListModal = !state.showAddToPlayListModal
+        },
+        addToPlaylist: (state, action: PayloadAction<{ id: number, song: Song }>) => {
+            const playlist = state.playlists.find((p) => p.id === action.payload.id);
+            if (playlist) {
+                playlist.songs.push(action.payload.song);
+            }
         },
         removeFromPlaylist: (state, action: PayloadAction<{playlistId: number, songId: string}> ) => {
             let playlist = state.playlists.find((p) => p.id === action.payload.playlistId);
