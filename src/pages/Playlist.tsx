@@ -1,12 +1,12 @@
-import { useParams } from "react-router-dom"
+import { useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faTrash, faPen, faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
 
-import { useAppSelector } from "../store/hook";
+import { useAppSelector } from '../store/hook';
 import { useAppDispatch } from '../store/hook.js';
 import { startPlaylist } from "../features/playerSlice.js";
-import { removeFromPlaylist, updatePlaylist } from "../features/playlistSlice.js";
-import { useRef, useState } from "react";
+import { removeFromPlaylist, updatePlaylist } from '../features/playlistSlice.js';
 
 const Playlist = () => {
     const [isEdit, setIsEdit] = useState(false);
@@ -34,7 +34,7 @@ const Playlist = () => {
             <div className="playlist-page">
                 <div className="descriptiton">
                     <div className="position-relative mb-4">
-                        <img src={selectedPlaylist.songs.length > 0 ? selectedPlaylist.songs[0].image : 'https://placehold.co/400'} alt="" className="playlist-img" />
+                        <img src={selectedPlaylist.songs.length > 0 ? selectedPlaylist.songs[0].image : "https://placehold.co/400"} alt="" className="playlist-img" />
                     </div>
                     <div className="mb-4">
                         {!isEdit ?

@@ -30,7 +30,7 @@ export const Playlists = () => {
 
     return (
         <div className="container">
-            <h2 className='mb-4'>
+            <h2 className="mb-4">
                 Playlists
             </h2>
             <GridRow children={renderPlaylists()} />

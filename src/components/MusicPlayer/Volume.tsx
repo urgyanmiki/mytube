@@ -10,16 +10,16 @@ interface VolumeProps {
 export const Volume = ({ volume, handleChangeVolume }: VolumeProps) => {
 
     return (
-        <div className='volume'>
+        <div className="volume">
             <input type="range"
                 min={0}
                 max={1}
                 step={0.01}
                 value={volume}
-                className='volume-bar'
+                className="volume-bar"
                 onChange={(event) => handleChangeVolume(+event.target.value)}
             />
-            <FontAwesomeIcon icon={faVolumeHigh} className='control-icons' />
+            <FontAwesomeIcon icon={faVolumeHigh} className="control-icons" />
         </div>
     )
     

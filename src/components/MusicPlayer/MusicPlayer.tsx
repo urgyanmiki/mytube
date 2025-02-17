@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { togglePlayPause, prevSong, nextSong } from '../../features/playerSlice';
 import { toggleShowAddToPlaylistModal } from '../../features/playlistSlice';
 import { useAppSelector } from '../../store/hook';
-import { Controls } from "./Controls"
-import { SongInfo } from "./SongInfo"
-import { Volume } from "./Volume"
+import { Controls } from './Controls';
+import { SongInfo } from './SongInfo';
+import { Volume } from './Volume';
 import { useState } from 'react';
 import { Seekbar } from './Seekbar';
 

@@ -1,11 +1,11 @@
-import { createPortal } from "react-dom";
-import { useDispatch } from "react-redux";
+import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '../../store/hook';
-import { AddPlaylistModal } from "./AddPlaylistModal";
-import { toggleShowAddPlaylistModal, toggleShowAddToPlaylistModal, addPlaylist } from "../../features/playlistSlice";
-import { Playlist } from "../../types";
-import { AddToPlaylist } from "./AddToPlaylist";
+import { AddPlaylistModal } from './AddPlaylistModal';
+import { toggleShowAddPlaylistModal, toggleShowAddToPlaylistModal, addPlaylist } from '../../features/playlistSlice';
+import { Playlist } from '../../types';
+import { AddToPlaylist } from './AddToPlaylist';
 
 export const Portal = () => {
     const showAddPlaylistModal = useAppSelector((state) => state.playlist.showAddPlaylistModal);

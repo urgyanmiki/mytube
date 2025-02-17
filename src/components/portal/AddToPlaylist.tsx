@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Playlist } from "../../types"
+
+import { Playlist } from '../../types';
 import { addToPlaylist } from '../../features/playlistSlice';
-import { useAppDispatch,  useAppSelector } from '../../store/hook';
+import { useAppDispatch,  useAppSelector } from "../../store/hook";
 
 interface AddToPlaylistModalProps {
     handleOnCloseModal: () => void,
@@ -33,7 +34,7 @@ export const AddToPlaylist = ({ handleOnCloseModal, playlists }: AddToPlaylistMo
                 <div className="modal-body">
                     {playlists.map(playlist =>
                         <div className="play-list-row" key={playlist.id}>
-                            <span className='title'>
+                            <span className="title">
                                 {playlist.title}
                             </span>
                             <button 

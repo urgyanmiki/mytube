@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 
 import { getTime } from '../../utils/utils';
 import { Song } from '../../types';
@@ -59,11 +59,11 @@ export const SongInfo = ({ isPlaying, volume, handleShowAddToPlayList, onSetCurr
                 <p>
                     {actualSong?.title}
                 </p>
-                <p className='fc-broken-white'>
-                    {actualSong?.subtitle} - <span className="time"> {getTime(audioRef.current?.currentTime)} / {duration ? getTime(duration) : ''} </span>
+                <p className="fc-broken-white">
+                    {actualSong?.subtitle} - <span className="time"> {getTime(audioRef.current?.currentTime)} / {duration ? getTime(duration) : ""} </span>
                 </p>
             </div>
-            <FontAwesomeIcon icon={faCirclePlus} className='control-icons' onClick={handleShowAddToPlayList} />
+            <FontAwesomeIcon icon={faCirclePlus} className="control-icons" onClick={handleShowAddToPlayList} />
 
         </div>
     )

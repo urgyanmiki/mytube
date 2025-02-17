@@ -1,7 +1,6 @@
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 interface SongProps {
     title: string,
@@ -23,7 +22,7 @@ export const Song = ({ title, description, image, handlePlaySong }: SongProps) =
             <div className="position-relative">
                 <img src={image} alt="" />
                 <div className="menu">
-                    <div className='actions'>
+                    <div className="actions">
                         <FontAwesomeIcon icon={faCirclePlay} onClick={handlePlaySong} />
                     </div>
                 </div>

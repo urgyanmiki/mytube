@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import parse from 'html-react-parser';
@@ -56,10 +56,10 @@ export const Artist = () => {
     // }
 
     return (
-        <div className='container'>
+        <div className="container">
             <div className="artist-page">
                 <div className="artist-bio mb-4">
-                    <img className='artist-image' src={artistObject.avatar} alt="" />
+                    <img className="artist-image" src={artistObject.avatar} alt="" />
                     <div>
                         <h1>
                             {artistObject.name}
@@ -70,7 +70,7 @@ export const Artist = () => {
                         <h3 className="fc-broken-white mb-4">
                             {artistObject.genres}
                         </h3>
-                        <button className='btn-default primary-btn btn-third-color'>
+                        <button className="btn-default primary-btn btn-third-color">
                         <FontAwesomeIcon icon={faArrowDown} /> Albums
                         </button>
                     </div>

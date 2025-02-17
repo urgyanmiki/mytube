@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 
 import { genreTestArr } from '../../genre.js';
 import { genreList } from '../../genres.js';
@@ -43,8 +43,8 @@ export const Genre = () => {
     }
 
     return (
-        <div className='container'>
-            <h1 className='mb-4'>
+        <div className="container">
+            <h1 className="mb-4">
                 {genre.title}
             </h1>
             <div className="genre-grid">

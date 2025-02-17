@@ -1,13 +1,13 @@
-import { useDispatch } from "react-redux";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { useAppSelector } from '../store/hook';
-import { SidebarPlaylist } from "./SidebarPlaylist"
-import { toggleShowAddPlaylistModal } from "../features/playlistSlice";
-import { startPlaylist } from "../features/playerSlice";
-import { Playlist } from "../types";
+import { SidebarPlaylist } from './SidebarPlaylist';
+import { toggleShowAddPlaylistModal } from '../features/playlistSlice';
+import { startPlaylist } from '../features/playerSlice';
+import { Playlist } from '../types';
 
 export const Sidebar = () => {
     const playlists = useAppSelector((state) => state.playlist.playlists)
@@ -20,7 +20,7 @@ export const Sidebar = () => {
         //     dispatch(playSong(playlist.songs[0]))
         // }
 
-        dispatch(startPlaylist(playlist))
+        dispatch(startPlaylist(playlist));
     }
 
     return (

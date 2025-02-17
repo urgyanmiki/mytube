@@ -1,5 +1,6 @@
-import { createSlice, current, PayloadAction } from "@reduxjs/toolkit";
-import { Song } from "../types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { Song } from '../types';
 
 interface initialState {
     isPlaying: boolean,

@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
 import playerSlice from '../features/playerSlice';
 import playlistSlice from '../features/playlistSlice';
