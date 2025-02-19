@@ -8,7 +8,7 @@ export const Genres = () => {
 
         for (let genre of genreList){
             genres.push(
-                <Genre key={genre.value} title={genre.title} value={genre.value} />
+                <Genre key={genre.value} title={genre.title} value={genre.value} transformedUrl={genre.transformedUrl} />
             );
         }
 

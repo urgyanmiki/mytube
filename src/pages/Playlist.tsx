@@ -15,16 +15,22 @@ const Playlist = () => {
     const playlists = useAppSelector((state) => state.playlist.playlists);
     const dispatch = useAppDispatch();
  
-    let selectedPlaylist = playlists.filter(actaulPlaylist => actaulPlaylist.id === +playlistId)[0];
+    let selectedPlaylist = null
+    if(playlistId){
+        selectedPlaylist = playlists.filter(actaulPlaylist => actaulPlaylist.id === +playlistId)[0];
+    }
+
     const titleRef = useRef<HTMLInputElement>(null);
     const descriptionRef = useRef<HTMLInputElement>(null);
     
     const editPlaylist = () => {
-        dispatch(updatePlaylist({
-            id: selectedPlaylist.id, 
-            title: titleRef.current.value, 
-            description: descriptionRef.current.value
-        }));
+        if(selectedPlaylist && titleRef.current && descriptionRef.current){
+            dispatch(updatePlaylist({
+                id: selectedPlaylist.id, 
+                title: titleRef.current.value, 
+                description: descriptionRef.current.value
+            }));
+        }
 
         setIsEdit(prevState => !prevState);
     }
@@ -34,19 +40,19 @@ const Playlist = () => {
             <div className="playlist-page">
                 <div className="descriptiton">
                     <div className="position-relative mb-4">
-                        <img src={selectedPlaylist.songs.length > 0 ? selectedPlaylist.songs[0].image : "https://placehold.co/400"} alt="" className="playlist-img" />
+                        <img src={selectedPlaylist && selectedPlaylist.songs.length > 0 ? selectedPlaylist.songs[0].image : "https://placehold.co/400"} alt="" className="playlist-img" />
                     </div>
                     <div className="mb-4">
                         {!isEdit ?
                             <div>
                                 <h2 className="">
-                                    {selectedPlaylist.title}
+                                    {selectedPlaylist?.title}
                                 </h2>
                                 <h3 className="">
-                                    {selectedPlaylist.description}
+                                    {selectedPlaylist?.description}
                                 </h3>
                                 <p className="mb-4">
-                                    ({selectedPlaylist.songs.length}) Songs
+                                    ({selectedPlaylist?.songs.length}) Songs
                                 </p>
                             </div> :
                             <div>
@@ -54,13 +60,13 @@ const Playlist = () => {
                                     type="text"
                                     ref={titleRef}
                                     className="default-input w-100"
-                                    defaultValue={selectedPlaylist.title}
+                                    defaultValue={selectedPlaylist?.title}
                                 />
                                 <input
                                     type="text"
                                     className="default-input w-100"
                                     ref={descriptionRef}
-                                    defaultValue={selectedPlaylist.description}
+                                    defaultValue={selectedPlaylist?.description}
                                 />
                             </div>
                         }
@@ -77,7 +83,7 @@ const Playlist = () => {
                     }
                 </div>
                 <div className="song-list">
-                    {selectedPlaylist.songs.map((song, index) =>
+                    {selectedPlaylist?.songs.map((song, index) =>
                         //TODO: Majd átírni id-ra
                         <div className="song-row" key={song.title}>
                             <div className="song-title-img">

@@ -4,12 +4,12 @@ import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 interface SongProps {
     title: string,
-    description: string,
+    subtitle: string,
     image: string,
     handlePlaySong: () => void
 }
 
-export const Song = ({ title, description, image, handlePlaySong }: SongProps) => {
+export const Song = ({ title, subtitle: description, image, handlePlaySong }: SongProps) => {
     const navigate = useNavigate();
 
     const onOpenArtist = (artist: string) => {
@@ -27,7 +27,7 @@ export const Song = ({ title, description, image, handlePlaySong }: SongProps) =
                     </div>
                 </div>
             </div>
-            <p className="title c-pointer"  onClick={handlePlaySong} >
+            <p className="title c-pointer" onClick={handlePlaySong} >
                 {title}
             </p>
             <p className="description" onClick={() => onOpenArtist(description)}>

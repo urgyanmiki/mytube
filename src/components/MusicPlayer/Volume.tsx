@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 
 interface VolumeProps {
@@ -17,7 +18,7 @@ export const Volume = ({ volume, handleChangeVolume }: VolumeProps) => {
                 step={0.01}
                 value={volume}
                 className="volume-bar"
-                onChange={(event) => handleChangeVolume(+event.target.value)}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleChangeVolume(+event.target.value)}
             />
             <FontAwesomeIcon icon={faVolumeHigh} className="control-icons" />
         </div>

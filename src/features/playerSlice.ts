@@ -30,7 +30,7 @@ const playerSlice = createSlice({
             state.isPlayerActive = true;
             state.isPlaying = true;
         },
-        startPlaylist: (state, action: PayloadAction<{ songs: Array<Song>, currentIndex: number }>) => {
+        startPlaylist: (state, action: PayloadAction<{ songs: Array<Song>, currentIndex: number | undefined }>) => {
             state.isPlayerActive = true;
             state.isPlaying = true;
             state.currentIndex = action.payload.currentIndex ? action.payload.currentIndex : 0;

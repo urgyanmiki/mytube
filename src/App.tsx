@@ -25,7 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/artist/:artist" element={<Artist />} />
-            <Route path="/genre/:genreId" element={<Genre />} />
+            <Route path="/genre/:transformedUrl" element={<Genre />} />
             <Route path="/playlists" element={<Playlists />} />
             <Route path="/playlists/:playlistId" element={<Playlist />} />
             <Route path="*" element={<Home />} />

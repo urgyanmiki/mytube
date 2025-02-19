@@ -15,7 +15,7 @@ export const Portal = () => {
     const dispatch = useDispatch();
 
     const handleOnAddPlaylist = (newPlaylist: Playlist) => {
-        dispatch(addPlaylist(newPlaylist))
+        dispatch(addPlaylist(newPlaylist));
     }
     
     return (

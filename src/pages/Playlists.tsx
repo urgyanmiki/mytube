@@ -20,7 +20,10 @@ export const Playlists = () => {
                     title={playlist.title}
                     description={playlist.description}
                     img={playlist.songs.length > 0? playlist.songs[0].image : 'https://placehold.co/400'}
-                    handleStartPlaylist={() => dispatch(startPlaylist(playlist))}
+                    handleStartPlaylist={() => dispatch(startPlaylist({
+                        songs: playlist.songs,
+                        currentIndex: 0
+                    }))}
                 />
             )
         }

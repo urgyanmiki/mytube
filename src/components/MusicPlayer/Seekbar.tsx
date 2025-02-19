@@ -1,3 +1,5 @@
+import React from "react"
+
 interface SeekbarProps {
     duration: number,
     currentTime: number,
@@ -13,7 +15,7 @@ export const Seekbar = ({duration, currentTime, onSetSeekTime}: SeekbarProps) =>
                 value={currentTime}
                 type="range"
                 step="any"
-                onInput={(event) => onSetSeekTime(+event?.target.value)}
+                onInput={(event: React.ChangeEvent<HTMLInputElement>) => onSetSeekTime(+event?.target.value)}
             />
         </div>
     )

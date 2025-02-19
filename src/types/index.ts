@@ -1,21 +1,11 @@
-interface SongGenre {
-    primary: string
-}
-
-interface SongArtist {
-    alias: string
-    id: string
-}
-
 export interface Song {
     id: string
     title: string
     subtitle: string
-    genres: SongGenre
-    image: string
-    releaseDate: string
-    artists?: Array<SongArtist>
+    genres: string
+    releaseDate?: string
     audioSrc: string
+    image: string
 }
 
 export interface Playlist {
@@ -42,4 +32,10 @@ export interface Artist {
     genres: Array<string> // attributes.genreNames
     albums: Array<Album> // attributes.views.full-albums.data
     avatar: string
+}
+
+export interface Genre {
+    title: string
+    value: string
+    transformedUrl: string
 }
