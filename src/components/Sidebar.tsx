@@ -1,27 +1,16 @@
-import { useDispatch } from "react-redux";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { useAppSelector } from '../store/hook';
-import { SidebarPlaylist } from "./SidebarPlaylist"
-import { toggleShowAddPlaylistModal } from "../features/playlistSlice";
-import { startPlaylist } from "../features/playerSlice";
-import { Playlist } from "../types";
+import { SidebarPlaylist } from './SidebarPlaylist';
+import { toggleShowAddPlaylistModal } from '../features/playlistSlice';
+import { startPlaylist } from '../features/playerSlice';
 
 export const Sidebar = () => {
     const playlists = useAppSelector((state) => state.playlist.playlists)
-
     const dispatch = useDispatch();
-
-    // TODO: ID alapján kérje ki
-    const handleStartPlaylist = (playlist: Playlist) => {
-        // if(playlist.songs.length > 0){
-        //     dispatch(playSong(playlist.songs[0]))
-        // }
-
-        dispatch(startPlaylist(playlist))
-    }
 
     return (
         <nav className="sidebar">
@@ -43,7 +32,10 @@ export const Sidebar = () => {
                         key={playlist.id}
                         title={playlist.title}
                         id={playlist.id}
-                        handleStartPlaylist={() => handleStartPlaylist(playlist)}
+                        handleStartPlaylist={() => dispatch(startPlaylist({
+                            songs: playlist.songs,
+                            currentIndex: 0
+                        }))}
                     />
                 ))}
             </div>

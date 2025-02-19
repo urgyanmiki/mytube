@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Playlist } from "../../types"
+
+import { Playlist } from '../../types';
 import { addToPlaylist } from '../../features/playlistSlice';
-import { useAppDispatch,  useAppSelector } from '../../store/hook';
+import { useAppDispatch,  useAppSelector } from "../../store/hook";
 
 interface AddToPlaylistModalProps {
     handleOnCloseModal: () => void,
-    // handleOnAddPlaylist: (newPlaylist: Playlist) => void
     playlists: Array<Playlist>
 }
 
@@ -14,11 +14,13 @@ export const AddToPlaylist = ({ handleOnCloseModal, playlists }: AddToPlaylistMo
     const { actualSong } = useAppSelector((state) => state.musicPlayer);
     const dispatch = useAppDispatch();
 
-    const handleAddToPlaylist = (id: string) => {
-        dispatch(addToPlaylist({
-            id, 
-            song: actualSong
-        }));
+    const handleAddToPlaylist = (id: number) => {
+        if(actualSong){
+            dispatch(addToPlaylist({
+                id, 
+                song: actualSong
+            }));
+        }
 
         handleOnCloseModal();
     }
@@ -33,7 +35,7 @@ export const AddToPlaylist = ({ handleOnCloseModal, playlists }: AddToPlaylistMo
                 <div className="modal-body">
                     {playlists.map(playlist =>
                         <div className="play-list-row" key={playlist.id}>
-                            <span className='title'>
+                            <span className="title">
                                 {playlist.title}
                             </span>
                             <button 

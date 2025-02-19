@@ -1,5 +1,6 @@
-import { createSlice, current, PayloadAction } from "@reduxjs/toolkit";
-import { Song } from "../types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { Song } from '../types';
 
 interface initialState {
     isPlaying: boolean,
@@ -29,16 +30,6 @@ const playerSlice = createSlice({
             state.isPlayerActive = true;
             state.isPlaying = true;
         },
-        startPlaylist: (state, action: PayloadAction<{ songs: Array<Song>, currentIndex: number }>) => {
-            state.isPlayerActive = true;
-            state.isPlaying = true;
-            state.currentIndex = action.payload.currentIndex ? action.payload.currentIndex : 0;
-
-            state.queuedSongs = action.payload.songs;
-            if(state.queuedSongs){
-                state.actualSong = state.queuedSongs[state.currentIndex];
-            }
-        },
         nextSong: (state) => {
             if(state.queuedSongs  && state.queuedSongs.length > state.currentIndex + 1){
                 state.currentIndex++;
@@ -48,6 +39,16 @@ const playerSlice = createSlice({
         prevSong: (state) => {
             if(state.currentIndex > 0 && state.queuedSongs){
                 state.currentIndex--;
+                state.actualSong = state.queuedSongs[state.currentIndex];
+            }
+        },
+        startPlaylist: (state, action: PayloadAction<{ songs: Array<Song>, currentIndex: number | undefined }>) => {
+            state.isPlayerActive = true;
+            state.isPlaying = true;
+            state.currentIndex = action.payload.currentIndex ? action.payload.currentIndex : 0;
+
+            state.queuedSongs = action.payload.songs;
+            if(state.queuedSongs){
                 state.actualSong = state.queuedSongs[state.currentIndex];
             }
         }

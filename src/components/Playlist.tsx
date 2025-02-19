@@ -1,6 +1,6 @@
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
 
 interface PlaylistProps {
     id: number,
@@ -15,7 +15,7 @@ export const Playlist = ({ id, img, title, description, handleStartPlaylist }: P
 
     const openPlaylist = () => {
         const path = `/playlists/${id}`;
-        navigate(path)
+        navigate(path);
     }
 
     return (
@@ -28,7 +28,7 @@ export const Playlist = ({ id, img, title, description, handleStartPlaylist }: P
                 {description}
             </p>
             <div className="menu">
-                <div className='actions'>
+                <div className="actions">
                     <FontAwesomeIcon icon={faCircleArrowRight} onClick={openPlaylist} />
                     <FontAwesomeIcon icon={faCirclePlay} onClick={handleStartPlaylist} />
                 </div>

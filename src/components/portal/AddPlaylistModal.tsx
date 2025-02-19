@@ -10,21 +10,23 @@ interface AddPlaylistModalProps {
 }
 
 export const AddPlaylistModal = ({ handleOnCloseModal, handleOnAddPlaylist }: AddPlaylistModalProps) => {
-    const titleInput = useRef('');
-    const descriptionInput = useRef('');
+    const titleInput = useRef<HTMLInputElement | null>(null);
+    const descriptionInput = useRef<HTMLInputElement | null>(null);
 
     const onAddPlaylist = () => {
-        const newPlaylist = {
-            id: getRandNumb(),
-            title: titleInput.current.value,
-            description: descriptionInput.current.value,
-            songs: []
+        if(titleInput.current && descriptionInput.current){
+            const newPlaylist = {
+                id: getRandNumb(),
+                title: titleInput.current.value,
+                description: descriptionInput.current.value,
+                songs: []
+            }
+    
+            handleOnAddPlaylist(newPlaylist);
+            titleInput.current.value = '';
+            descriptionInput.current.value = '';
+            handleOnCloseModal();
         }
-
-        handleOnAddPlaylist(newPlaylist);
-        titleInput.current.value = '';
-        descriptionInput.current.value = '';
-        handleOnCloseModal();
     }
 
     return (

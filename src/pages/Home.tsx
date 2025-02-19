@@ -25,13 +25,16 @@ export const Home = () => {
                 audioSrc: song.hub.actions[1].uri,
                 image: song.images.coverart,
             }
+
             songsArr.push(
                 <Song
                     key={song.key}
                     handlePlaySong={() => handlePlaySong(songObject)}
-                    {...songObject}
+                    title={songObject.title}
+                    subtitle={songObject.subtitle}
+                    image={songObject.image}
                 />
-            )
+            );
         }
 
         return songsArr;

@@ -1,20 +1,21 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
 
 interface GenreProps {
     title: string,
     value: string,
+    transformedUrl: string,
 }
 
-export const Genre = ({title, value}: GenreProps) => {
+export const Genre = ({title, transformedUrl}: GenreProps) => {
     const navigate = useNavigate();
 
-    const navigateGenre = (value: string) => {
-        const path = `/genre/${value}`;
+    const navigateGenre = (transformedUrl: string) => {
+        const path = `/genre/${transformedUrl}`;
         navigate(path)
     }
 
     return (
-        <span className="genre" onClick={() => navigateGenre(value)}>
+        <span className="genre" onClick={() => navigateGenre(transformedUrl)}>
             {title}
         </span>
     )

@@ -1,14 +1,17 @@
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 
 import { genreTestArr } from '../../genre.js';
 import { genreList } from '../../genres.js';
 import { Song } from '../components/Song.js';
 import { useAppDispatch } from '../store/hook.js';
 import { playSong } from '../features/playerSlice.js';
+import { Song as SongInterface } from '../types/index.ts';
+import { Genre as GenreInterface } from '../types/index.ts';
 
 export const Genre = () => {
-    const { genreId } = useParams();
-    const genre = genreList.find((genre) => genre.value === genreId)
+    const { transformedUrl } = useParams();
+    // Temporary var
+    const genre = genreList.find((genre: GenreInterface) => genre.transformedUrl === transformedUrl)
 
     const dispatch = useAppDispatch();
 
@@ -32,7 +35,7 @@ export const Genre = () => {
                 <Song
                     key={songObject.id}
                     title={songObject.title}
-                    description={songObject.subtitle}
+                    subtitle={songObject.subtitle}
                     image={songObject.image}
                     handlePlaySong={() => handlePlaySong(songObject)}
                 />
@@ -43,8 +46,8 @@ export const Genre = () => {
     }
 
     return (
-        <div className='container'>
-            <h1 className='mb-4'>
+        <div className="container">
+            <h1 className="mb-4">
                 {genre.title}
             </h1>
             <div className="genre-grid">

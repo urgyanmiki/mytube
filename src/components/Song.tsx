@@ -1,16 +1,15 @@
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 interface SongProps {
     title: string,
-    description: string,
+    subtitle: string,
     image: string,
     handlePlaySong: () => void
 }
 
-export const Song = ({ title, description, image, handlePlaySong }: SongProps) => {
+export const Song = ({ title, subtitle: description, image, handlePlaySong }: SongProps) => {
     const navigate = useNavigate();
 
     const onOpenArtist = (artist: string) => {
@@ -23,12 +22,12 @@ export const Song = ({ title, description, image, handlePlaySong }: SongProps) =
             <div className="position-relative">
                 <img src={image} alt="" />
                 <div className="menu">
-                    <div className='actions'>
+                    <div className="actions">
                         <FontAwesomeIcon icon={faCirclePlay} onClick={handlePlaySong} />
                     </div>
                 </div>
             </div>
-            <p className="title c-pointer"  onClick={handlePlaySong} >
+            <p className="title c-pointer" onClick={handlePlaySong} >
                 {title}
             </p>
             <p className="description" onClick={() => onOpenArtist(description)}>

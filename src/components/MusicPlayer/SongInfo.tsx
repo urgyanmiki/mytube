@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 
 import { getTime } from '../../utils/utils';
 import { Song } from '../../types';
@@ -20,28 +20,29 @@ export const SongInfo = ({ isPlaying, volume, handleShowAddToPlayList, onSetCurr
     const duration = audioRef.current?.duration;
 
     useEffect(() => {
-            onSetDuration(duration);
-            audioRef.current.currentTime = 0;
+        onSetDuration(duration);
+        audioRef.current.currentTime = 0;
     }, [actualSong]);
 
     useEffect(() => {
-            audioRef.current.currentTime = seekTime;
+        audioRef.current.currentTime = seekTime;
     }, [seekTime]);
 
+    // isActive változik akkro is renderelődjön
     useEffect(() => {
-            if (isPlaying) {
-                audioRef.current.play();
-            } else {
-                audioRef.current.pause();
-            }
+        if (isPlaying) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+        }
     }, [isPlaying])
 
     useEffect(() => {
-            audioRef.current.volume = volume;
+        audioRef.current.volume = volume;
     }, [volume]);
 
     const updateTime = () => {
-            onSetCurrentTime(audioRef.current.currentTime);
+        onSetCurrentTime(audioRef.current.currentTime);
     }
 
     return (
@@ -58,11 +59,11 @@ export const SongInfo = ({ isPlaying, volume, handleShowAddToPlayList, onSetCurr
                 <p>
                     {actualSong?.title}
                 </p>
-                <p className='fc-broken-white'>
-                    {actualSong?.subtitle} - <span className="time"> {getTime(audioRef.current?.currentTime)} / {duration ? getTime(duration) : ''} </span>
+                <p className="fc-broken-white">
+                    {actualSong?.subtitle} - <span className="time"> {getTime(audioRef.current?.currentTime)} / {duration ? getTime(duration) : ""} </span>
                 </p>
             </div>
-            <FontAwesomeIcon icon={faCirclePlus} className='control-icons' onClick={handleShowAddToPlayList} />
+            <FontAwesomeIcon icon={faCirclePlus} className="control-icons" onClick={handleShowAddToPlayList} />
 
         </div>
     )

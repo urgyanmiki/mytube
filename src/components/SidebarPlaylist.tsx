@@ -1,5 +1,4 @@
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,7 +21,7 @@ export const SidebarPlaylist = ({ id, title, handleStartPlaylist }: SidebarPlayl
             <p>
                 {title}
             </p>
-            <FontAwesomeIcon className='play-icon' icon={faCirclePlay} size="1x" onClick={handleStartPlaylist} />
+            <FontAwesomeIcon className="play-icon" icon={faCirclePlay} size="1x" onClick={handleStartPlaylist} />
         </div>
     )
 

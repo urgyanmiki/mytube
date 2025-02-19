@@ -1,15 +1,15 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom";
 
-import { MusicPlayer } from "./components/MusicPlayer/MusicPlayer"
-import { Navbar } from "./components/Navbar"
-import { Portal } from "./components/portal/Portal"
-import { Sidebar } from "./components/Sidebar"
-import { Home } from "./pages/Home"
-import { Playlists } from "./pages/Playlists"
-import Playlist from "./pages/Playlist"
-import { useAppSelector } from "./store/hook"
-import { Genre } from "./pages/Genre"
-import { Artist } from "./pages/Artist"
+import { MusicPlayer } from './components/MusicPlayer/MusicPlayer';
+import { Navbar } from './components/Navbar';
+import { Portal } from './components/portal/Portal';
+import { Sidebar } from './components/Sidebar';
+import { Home } from './pages/Home';
+import { Playlists } from './pages/Playlists';
+import Playlist from './pages/Playlist';
+import { useAppSelector } from './store/hook';
+import { Genre } from './pages/Genre';
+import { Artist } from './pages/Artist';
 
 function App() {
   const { isPlayerActive } = useAppSelector((state) => state.musicPlayer);
@@ -25,7 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/artist/:artist" element={<Artist />} />
-            <Route path="/genre/:genreId" element={<Genre />} />
+            <Route path="/genre/:transformedUrl" element={<Genre />} />
             <Route path="/playlists" element={<Playlists />} />
             <Route path="/playlists/:playlistId" element={<Playlist />} />
             <Route path="*" element={<Home />} />
