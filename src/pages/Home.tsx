@@ -1,4 +1,4 @@
-import { songList } from '../../songs.js';
+import { songList } from '../../songs.ts';
 import { Song } from '../components/Song.js';
 import { useAppDispatch } from '../store/hook.js';
 import { playSong } from '../features/playerSlice.js';

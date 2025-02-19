@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "songs.js", "genres.js"]
+  "include": ["src", "songs.ts", "genres.ts"]
 }
