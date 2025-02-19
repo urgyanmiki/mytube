@@ -27,25 +27,32 @@
         border-bottom: 1px solid $gray;
 
         a {
+            display: flex;
+            align-items: center;
             border-radius: 12px;
             padding: 12px 18px;
             transition: background-color 0.15s ease-in-out;
             cursor: pointer;
             line-height: 1;
             color: $white;
+            background-color: $main-color + a1;
 
             &:hover {
                 background-color: $main-color;
             }
 
-            &.active{
+            &.active {
                 background-color: $main-color;
                 color: $white;
+            }
+
+            svg {
+                margin-right: 8px;
             }
         }
     }
 
-    .playlists{
+    .playlists {
         display: flex;
         flex-direction: column;
         gap: 6px;
@@ -59,7 +66,7 @@
             cursor: pointer;
             transition: background-color 0.15s ease-in-out;
 
-            .play-icon{
+            .play-icon {
                 display: none;
                 position: absolute;
                 top: calc(50% - 14px);
@@ -72,7 +79,7 @@
             &:hover {
                 background-color: $main-color;
 
-                .play-icon{
+                .play-icon {
                     display: block;
                 }
             }
@@ -80,7 +87,7 @@
     }
 }
 
-.navbar{
+.navbar {
     position: fixed;
     left: 257px;
     top: 0;
