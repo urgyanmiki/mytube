@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faHouse, faMusic } from "@fortawesome/free-solid-svg-icons";
 
 import { useAppSelector } from '../store/hook';
 import { SidebarPlaylist } from './SidebarPlaylist';
@@ -20,8 +20,8 @@ export const Sidebar = () => {
                 </h1>
             </div>
             <div className="nav-links">
-                <NavLink to="/"> Home </NavLink>
-                <NavLink to="/playlists">  Playlists </NavLink>
+                <NavLink to="/"> <FontAwesomeIcon icon={faHouse} /> Home </NavLink>
+                <NavLink to="/playlists"> <FontAwesomeIcon icon={faMusic} /> Playlists </NavLink>
             </div>
             <div className="playlists">
                 <button className="btn btn-default primary-btn btn-main-color" onClick={() => dispatch(toggleShowAddPlaylistModal())}>

@@ -20,19 +20,21 @@ export const Playlist = ({ id, img, title, description, handleStartPlaylist }: P
 
     return (
         <div className="playlist-box">
-            <img src={img} alt="" />
+            <div className="position-relative">
+                <img src={img} alt="" />
+                <div className="menu">
+                    <div className="actions">
+                        <FontAwesomeIcon icon={faCircleArrowRight} onClick={openPlaylist} />
+                        <FontAwesomeIcon icon={faCirclePlay} onClick={handleStartPlaylist} />
+                    </div>
+                </div>
+            </div>
             <p className="title">
                 {title}
             </p>
             <p className="description">
                 {description}
             </p>
-            <div className="menu">
-                <div className="actions">
-                    <FontAwesomeIcon icon={faCircleArrowRight} onClick={openPlaylist} />
-                    <FontAwesomeIcon icon={faCirclePlay} onClick={handleStartPlaylist} />
-                </div>
-            </div>
         </div>
     )
 }

@@ -12,16 +12,18 @@ interface SongInfoProps {
     handleShowAddToPlayList: () => void,
     onSetDuration: (duration: number) => void,
     onSetCurrentTime: (currentTime: number) => void,
-    actualSong?: Song
+    actualSong?: Song,
+    handleNextSong: (currentTime: number) => void,
 }
 
-export const SongInfo = ({ isPlaying, volume, handleShowAddToPlayList, onSetCurrentTime, seekTime, onSetDuration, actualSong }: SongInfoProps) => {
+export const SongInfo = ({ isPlaying, volume, handleShowAddToPlayList, onSetCurrentTime, seekTime, onSetDuration, actualSong, handleNextSong }: SongInfoProps) => {
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const duration = audioRef.current?.duration;
 
     useEffect(() => {
         onSetDuration(duration);
         audioRef.current.currentTime = 0;
+        audioRef.current.play();
     }, [actualSong]);
 
     useEffect(() => {
@@ -30,6 +32,7 @@ export const SongInfo = ({ isPlaying, volume, handleShowAddToPlayList, onSetCurr
 
     // isActive változik akkro is renderelődjön
     useEffect(() => {
+        console.log(isPlaying)
         if (isPlaying) {
             audioRef.current.play();
         } else {
@@ -51,6 +54,7 @@ export const SongInfo = ({ isPlaying, volume, handleShowAddToPlayList, onSetCurr
                 ref={audioRef}
                 onTimeUpdate={updateTime}
                 src={actualSong?.audioSrc}
+                onEnded={handleNextSong}
             />
             <img src={actualSong?.image}
                 alt=""

@@ -71,6 +71,7 @@ export const MusicPlayer = () => {
                 volume={volume}
                 seekTime={seekTime}
                 actualSong={actualSong}
+                handleNextSong={handleNextSong}
             />
             <Volume
                 volume={volume}
