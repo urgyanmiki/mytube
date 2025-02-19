@@ -76,3 +76,36 @@
         background-color: $gray;
     }
 }
+
+.album-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .album-box{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        padding: 12px;
+        background: #282b2f53;
+        border-radius: 6px;
+
+        img{
+            border-radius: 4px;
+            max-width: 130px;
+            aspect-ratio: 1;
+        }
+        .description{
+            margin: auto 0;
+        }
+    }
+
+    // calc(50% - 30px)
+    @media (min-width: 992px) {
+        gap: 18px;
+        .album-box{
+            max-width: calc(50% - 36px);
+        }
+    }
+}

@@ -16,6 +16,8 @@ export const Artist = () => {
         avatar: artistTemp.avatar,
     };
 
+    console.log(artistObject.albums)
+
     return (
         <div className="container">
             <div className="artist-page">
@@ -32,13 +34,34 @@ export const Artist = () => {
                             {artistObject.genres}
                         </h3>
                         <button className="btn-default primary-btn btn-third-color">
-                        <FontAwesomeIcon icon={faArrowDown} /> Albums
+                            <FontAwesomeIcon icon={faArrowDown} /> Albums
                         </button>
                     </div>
                 </div>
 
-                <div>
+                <div className="mb-4">
                     {parse(artistObject.bio)}
+                </div>
+
+                <h2 className="mb-4 text-center">
+                    Albums
+                </h2>
+                <div className="album-container">
+                    {artistObject.albums.map((album) =>
+                        // console.log(album)
+                        <div className="album-box" key={album.id}>
+                            <img src={album.attributes.artwork.url} alt="" />
+                            <div className="description">
+                                <h3>
+                                    {album.attributes.name} 
+                                </h3>
+                                <span className="fc-broken-white"> ({album.attributes.releaseDate.substring(0, 4)}) </span>
+                                <p>
+                                    {album.attributes.editorialNotes.short}
+                                </p>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
