@@ -1,4 +1,4 @@
-import { songList } from '../../songs.js';
+import { songList } from '../../songs.ts';
 import { Song } from '../components/Song.js';
 import { useAppDispatch } from '../store/hook.js';
 import { playSong } from '../features/playerSlice.js';
@@ -22,7 +22,7 @@ export const Home = () => {
                 title: song.title,
                 subtitle: song.subtitle,
                 genres: song.genres.primary,
-                audioSrc: song.hub.actions[1].uri,
+                audioSrc: song.hub.actions[1].uri!,
                 image: song.images.coverart,
             }
 

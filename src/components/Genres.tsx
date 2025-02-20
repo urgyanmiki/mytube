@@ -1,4 +1,4 @@
-import { genreList } from '../../genres.js'
+import { genreList } from '../../genres.ts'
 import { Genre } from './Genre.js';
 import { GridRow } from './GridRow.js';
 

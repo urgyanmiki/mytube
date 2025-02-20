@@ -3,7 +3,7 @@ export interface Song {
     title: string
     subtitle: string
     genres: string
-    releaseDate?: string
+    releaseDate?: string | null
     audioSrc: string
     image: string
 }
