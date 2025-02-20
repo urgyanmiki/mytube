@@ -4,10 +4,11 @@ import { togglePlayPause, prevSong, nextSong } from '../../features/playerSlice'
 import { toggleShowAddToPlaylistModal } from '../../features/playlistSlice';
 import { useAppSelector } from '../../store/hook';
 import { Controls } from './Controls';
-import { SongInfo } from './SongInfo';
+import { Audio } from './Audio';
 import { Volume } from './Volume';
 import { useState } from 'react';
 import { Seekbar } from './Seekbar';
+import { SongDescription } from './SongDescription';
 
 export const MusicPlayer = () => {
     const [volume, setVolume] = useState(0);
@@ -63,15 +64,20 @@ export const MusicPlayer = () => {
                 handleNextSong={handleNextSong}
                 handlePrevSong={handlePrevSong}
             />
-            <SongInfo
+            <Audio
                 isPlaying={isPlaying}
-                handleShowAddToPlayList={handleShowAddToPlayList}
                 onSetCurrentTime={onSetCurrentTime}
                 onSetDuration={onSetDuration}
                 volume={volume}
                 seekTime={seekTime}
                 actualSong={actualSong}
                 handleNextSong={handleNextSong}
+            />
+            <SongDescription
+                actualSong={actualSong}
+                currentTime={currentTime}
+                duration={duration}
+                handleShowAddToPlayList={handleShowAddToPlayList}
             />
             <Volume
                 volume={volume}

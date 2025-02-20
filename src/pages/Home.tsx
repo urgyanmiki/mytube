@@ -22,7 +22,7 @@ export const Home = () => {
                 title: song.title,
                 subtitle: song.subtitle,
                 genres: song.genres.primary,
-                audioSrc: song.hub.actions[1].uri,
+                audioSrc: song.hub.actions[1].uri!,
                 image: song.images.coverart,
             }
 

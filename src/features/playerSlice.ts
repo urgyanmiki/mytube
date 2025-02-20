@@ -5,7 +5,7 @@ import { Song } from '../types';
 interface initialState {
     isPlaying: boolean,
     isPlayerActive: boolean,
-    actualSong?: Song,
+    actualSong: Song,
     queuedSongs?: Array<Song>,
     currentIndex: number
 }

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import { MusicPlayer } from './components/MusicPlayer/MusicPlayer';
+import { MusicPlayer } from './components/MusicPlayer'
 import { Navbar } from './components/Navbar';
 import { Portal } from './components/portal/Portal';
 import { Sidebar } from './components/Sidebar';

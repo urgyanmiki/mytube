@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import parse from 'html-react-parser';
 
-import { artist as artistData } from '../../artist.js';
+import { artist as artistData } from '../../artist.ts';
 
 export const Artist = () => {
     let artistTemp = artistData.data[0];

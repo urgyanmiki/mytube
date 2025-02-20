@@ -7,6 +7,7 @@ interface SeekbarProps {
 }
 
 export const Seekbar = ({duration, currentTime, onSetSeekTime}: SeekbarProps) => {
+    
     return (
         <div className="seekbar">
             <input

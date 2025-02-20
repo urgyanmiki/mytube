@@ -28,6 +28,7 @@ export const Genre = () => {
                 title: song.attributes.name,
                 subtitle: song.attributes.artistName,
                 genres: song.attributes.genreNames[0],
+                releaseDate: null,
                 audioSrc: song.attributes.previews[0].url,
                 image: song.attributes.artwork.url,
             }
@@ -48,7 +49,7 @@ export const Genre = () => {
     return (
         <div className="container">
             <h1 className="mb-4">
-                {genre.title}
+                {genre?.title}
             </h1>
             <div className="genre-grid">
                 {renderSongs()}
