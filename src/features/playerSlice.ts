@@ -13,7 +13,15 @@ interface initialState {
 const initialState: initialState = {
     isPlaying: false,
     isPlayerActive: false,
-    actualSong: {},
+    actualSong: {
+        id: '',
+        title: '',
+        subtitle: '',
+        genres: '',
+        releaseDate: null,
+        audioSrc: '',
+        image: ''
+    },
     queuedSongs: [],
     currentIndex: 0,
 }
