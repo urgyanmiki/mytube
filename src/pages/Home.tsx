@@ -18,7 +18,6 @@ export const Home = () => {
         return <div>error</div>;
     }
 
-
     const handlePlaySong = (song: SongInterface) => {
         dispatch(playSong(song))
     }
@@ -35,6 +34,7 @@ export const Home = () => {
                     genres: song.attributes.genreNames[0],
                     audioSrc: song.attributes.previews[0].url,
                     image: song.attributes.artwork.url,
+                    artistId: song.relationships.artists.data[0].id,
                 }
 
                 songsArr.push(
@@ -44,6 +44,7 @@ export const Home = () => {
                         title={songObject.title}
                         subtitle={songObject.subtitle}
                         image={songObject.image}
+                        artistId={songObject.artistId}
                     />
                 );
             }

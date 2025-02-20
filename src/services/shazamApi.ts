@@ -11,9 +11,12 @@ export const shazamApi = createApi({
     }),
     endpoints: (builder) => ({
         getWorldChart: builder.query({
-            query: () => 'charts/world?country_code=HU'
+            query: () => 'v1/charts/world?country_code=HU'
+        }),
+        getArtist: builder.query({
+            query: (artistId) => `v2/artists/details?artist_id=${artistId}`
         })
     })
 });
 
-export const { useGetWorldChartQuery } = shazamApi;
+export const { useGetWorldChartQuery, useGetArtistQuery } = shazamApi;

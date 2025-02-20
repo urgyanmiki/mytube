@@ -1,11 +1,25 @@
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import parse from 'html-react-parser';
 
-import { artist as artistData } from '../../artist.ts';
+import { useGetArtistQuery } from '../services/shazamApi.ts';
+// import { artist as artistData } from '../../artist.ts';
+import { LoadingScreen } from '../components/Loading.tsx';
 
 export const Artist = () => {
-    let artistTemp = artistData.data[0];
+    const { artistId } = useParams();
+    const { data, isLoading, error } = useGetArtistQuery(artistId);
+
+    if (isLoading) {
+        return <LoadingScreen />;
+    }
+
+    if (error) {
+        return <div>error</div>;
+    }
+
+    let artistTemp = data;
 
     const artistObject = {
         name: artistTemp.attributes.name,
@@ -15,8 +29,6 @@ export const Artist = () => {
         albums: artistTemp.views['full-albums'].data,
         avatar: artistTemp.avatar,
     };
-
-    console.log(artistObject.albums)
 
     return (
         <div className="container">
@@ -53,7 +65,7 @@ export const Artist = () => {
                             <img src={album.attributes.artwork.url} alt="" />
                             <div className="description">
                                 <h3>
-                                    {album.attributes.name} 
+                                    {album.attributes.name}
                                 </h3>
                                 <span className="fc-broken-white"> ({album.attributes.releaseDate.substring(0, 4)}) </span>
                                 <p>
