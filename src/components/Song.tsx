@@ -20,7 +20,7 @@ export const Song = ({ title, subtitle: description, image, handlePlaySong }: So
     return (
         <div className="playlist-box">
             <div className="position-relative">
-                <img src={image} alt="" />
+                <img src={image} alt="" loading="lazy" />
                 <div className="menu">
                     <div className="actions">
                         <FontAwesomeIcon icon={faCirclePlay} onClick={handlePlaySong} />
