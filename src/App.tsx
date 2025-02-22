@@ -24,7 +24,7 @@ function App() {
           <img src="/bg.png" alt="" className="bg-img" />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/artist/:artist" element={<Artist />} />
+            <Route path="/artist/:artistId" element={<Artist />} />
             <Route path="/genre/:transformedUrl" element={<Genre />} />
             <Route path="/playlists" element={<Playlists />} />
             <Route path="/playlists/:playlistId" element={<Playlist />} />

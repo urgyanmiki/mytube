@@ -15,8 +15,11 @@ export const shazamApi = createApi({
         }),
         getArtist: builder.query({
             query: (artistId) => `v2/artists/details?artist_id=${artistId}`
+        }),
+        getGenre: builder.query({
+            query: (genreId) => `v1/charts/genre-world?genre_code=${genreId}&country_code=HU`
         })
     })
 });
 
-export const { useGetWorldChartQuery, useGetArtistQuery } = shazamApi;
+export const { useGetWorldChartQuery, useGetArtistQuery, useGetGenreQuery } = shazamApi;

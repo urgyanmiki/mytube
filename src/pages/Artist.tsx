@@ -19,7 +19,7 @@ export const Artist = () => {
         return <div>error</div>;
     }
 
-    let artistTemp = data;
+    let artistTemp = data.data[0];
 
     const artistObject = {
         name: artistTemp.attributes.name,
@@ -68,9 +68,7 @@ export const Artist = () => {
                                     {album.attributes.name}
                                 </h3>
                                 <span className="fc-broken-white"> ({album.attributes.releaseDate.substring(0, 4)}) </span>
-                                <p>
-                                    {album.attributes.editorialNotes.short}
-                                </p>
+                                {album.attributes.editorialNote ? <p> album.attributes.editorialNotes.short </p> : null }
                             </div>
                         </div>
                     )}

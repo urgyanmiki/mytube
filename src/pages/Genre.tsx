@@ -7,11 +7,22 @@ import { useAppDispatch } from '../store/hook.js';
 import { playSong } from '../features/playerSlice.js';
 import { Song as SongInterface } from '../types/index.ts';
 import { Genre as GenreInterface } from '../types/index.ts';
+import { useGetGenreQuery } from '../services/shazamApi.ts';
+import { LoadingScreen } from '../components/Loading.tsx';
 
 export const Genre = () => {
     const { transformedUrl } = useParams();
-    // Temporary var
     const genre = genreList.find((genre: GenreInterface) => genre.transformedUrl === transformedUrl)
+
+    const { data, isLoading, error } = useGetGenreQuery(genre?.value);
+    console.log(data);
+    if (isLoading) {
+        return <LoadingScreen />;
+    }
+
+    if (error) {
+        return <div>error</div>;
+    }
 
     const dispatch = useAppDispatch();
 
@@ -22,7 +33,7 @@ export const Genre = () => {
     const renderSongs = () => {
         let songsArr = [];
 
-        for (let song of genreTestArr) {
+        for (let song of data) {
             const songObject = {
                 id: song.id,
                 title: song.attributes.name,
@@ -31,6 +42,7 @@ export const Genre = () => {
                 releaseDate: null,
                 audioSrc: song.attributes.previews[0].url,
                 image: song.attributes.artwork.url,
+                artistId: song.relationships.artists.data[0].id,
             }
             songsArr.push(
                 <Song
@@ -39,6 +51,7 @@ export const Genre = () => {
                     subtitle={songObject.subtitle}
                     image={songObject.image}
                     handlePlaySong={() => handlePlaySong(songObject)}
+                    artistId={songObject.artistId}
                 />
             )
         }
