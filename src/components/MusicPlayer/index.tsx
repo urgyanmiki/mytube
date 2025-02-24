@@ -11,7 +11,7 @@ import { Seekbar } from './Seekbar';
 import { SongDescription } from './SongDescription';
 
 export const MusicPlayer = () => {
-    const [volume, setVolume] = useState(0);
+    const [volume, setVolume] = useState(0.4);
     const [currentTime, setCurrentTime] = useState(0);
     const [seekTime, setSeekTime] = useState(0);
     const [duration, setDuration] = useState(0);
