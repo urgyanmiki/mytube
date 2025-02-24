@@ -1,11 +1,25 @@
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import parse from 'html-react-parser';
 
-import { artist as artistData } from '../../artist.ts';
+import { useGetArtistQuery } from '../services/shazamApi.ts';
+// import { artist as artistData } from '../../artist.ts';
+import { LoadingScreen } from '../components/Loading.tsx';
 
 export const Artist = () => {
-    let artistTemp = artistData.data[0];
+    const { artistId } = useParams();
+    const { data, isLoading, error } = useGetArtistQuery(artistId);
+    console.log(data)
+    if (isLoading) {
+        return <LoadingScreen />;
+    }
+
+    if (error) {
+        return <div>error</div>;
+    }
+
+    let artistTemp = data.data[0];
 
     const artistObject = {
         name: artistTemp.attributes.name,
@@ -16,7 +30,6 @@ export const Artist = () => {
         avatar: artistTemp.avatar,
     };
 
-    console.log(artistObject.albums)
 
     return (
         <div className="container">
@@ -40,25 +53,23 @@ export const Artist = () => {
                 </div>
 
                 <div className="mb-4">
-                    {parse(artistObject.bio)}
+                    {artistObject.bio ? parse(artistObject.bio) : null}
                 </div>
 
                 <h2 className="mb-4 text-center">
                     Albums
                 </h2>
                 <div className="album-container">
-                    {artistObject.albums.map((album) =>
+                    {artistObject.albums.map((album: any) =>
                         // console.log(album)
                         <div className="album-box" key={album.id}>
                             <img src={album.attributes.artwork.url} alt="" />
                             <div className="description">
                                 <h3>
-                                    {album.attributes.name} 
+                                    {album.attributes.name}
                                 </h3>
                                 <span className="fc-broken-white"> ({album.attributes.releaseDate.substring(0, 4)}) </span>
-                                <p>
-                                    {album.attributes.editorialNotes.short}
-                                </p>
+                                {album.attributes.editorialNote ? <p> album.attributes.editorialNotes.short </p> : null }
                             </div>
                         </div>
                     )}
