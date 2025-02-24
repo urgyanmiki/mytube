@@ -10,7 +10,7 @@ export const shazamApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getWorldChart: builder.query({
+        getWorldChart: builder.query<any, void>({
             query: () => 'v1/charts/world?country_code=HU'
         }),
         getArtist: builder.query({
