@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 
-import { genreTestArr } from '../../genre.js';
 import { genreList } from '../../genres.js';
 import { Song } from '../components/Song.js';
 import { useAppDispatch } from '../store/hook.js';
@@ -15,7 +14,7 @@ export const Genre = () => {
     const genre = genreList.find((genre: GenreInterface) => genre.transformedUrl === transformedUrl)
 
     const { data, isLoading, error } = useGetGenreQuery(genre?.value);
-    console.log(data);
+    
     if (isLoading) {
         return <LoadingScreen />;
     }

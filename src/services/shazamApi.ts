@@ -21,8 +21,17 @@ export const shazamApi = createApi({
         }),
         getSearchSuggest: builder.query({
             query: (searchTerm) => `v1/search/suggest?query=${searchTerm}`
+        }),
+        getSearchResult: builder.query({
+            query: (searchTerm) => `v1/search/multi?offset=0&search_type=SONGS_ARTISTS&query=${searchTerm}`
         })
     })
 });
 
-export const { useGetWorldChartQuery, useGetArtistQuery, useGetGenreQuery, useGetSearchSuggestQuery } = shazamApi;
+export const { 
+    useGetWorldChartQuery, 
+    useGetArtistQuery, 
+    useGetGenreQuery, 
+    useGetSearchSuggestQuery,
+    useGetSearchResultQuery
+ } = shazamApi;

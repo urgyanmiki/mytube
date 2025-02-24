@@ -10,6 +10,7 @@ import Playlist from './pages/Playlist';
 import { useAppSelector } from './store/hook';
 import { Genre } from './pages/Genre';
 import { Artist } from './pages/Artist';
+import { Search } from "./pages/Search";
 
 function App() {
   const { isPlayerActive } = useAppSelector((state) => state.musicPlayer);
@@ -24,6 +25,7 @@ function App() {
           <img src="/bg.png" alt="" className="bg-img" />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/search/:searchTerm" element={<Search />} />
             <Route path="/artist/:artistId" element={<Artist />} />
             <Route path="/genre/:transformedUrl" element={<Genre />} />
             <Route path="/playlists" element={<Playlists />} />

@@ -20,7 +20,8 @@ export const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container">
-                <span className="search-input-box">
+                <span className="search-input-box"
+                >
                     <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon" />
                     <input
                         type="text"

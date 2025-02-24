@@ -10,7 +10,7 @@ import { LoadingScreen } from '../components/Loading.tsx';
 export const Artist = () => {
     const { artistId } = useParams();
     const { data, isLoading, error } = useGetArtistQuery(artistId);
-
+    console.log(data)
     if (isLoading) {
         return <LoadingScreen />;
     }
@@ -29,6 +29,7 @@ export const Artist = () => {
         albums: artistTemp.views['full-albums'].data,
         avatar: artistTemp.avatar,
     };
+
 
     return (
         <div className="container">
@@ -52,14 +53,14 @@ export const Artist = () => {
                 </div>
 
                 <div className="mb-4">
-                    {parse(artistObject.bio)}
+                    {artistObject.bio ? parse(artistObject.bio) : null}
                 </div>
 
                 <h2 className="mb-4 text-center">
                     Albums
                 </h2>
                 <div className="album-container">
-                    {artistObject.albums.map((album) =>
+                    {artistObject.albums.map((album: any) =>
                         // console.log(album)
                         <div className="album-box" key={album.id}>
                             <img src={album.attributes.artwork.url} alt="" />
