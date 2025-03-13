@@ -32,7 +32,7 @@ export const Navbar = () => {
                         onBlur={() => setIsSearchFocused(false)}
                     />
                     {searchVal.length > 0 ? <FontAwesomeIcon icon={faXmark} className="delete-icon" onClick={() => setSearchVal("")} /> : null}
-                    {isSearchFocused && searchTerm.length > 1 ? <SearchSuggestions searchTerm={searchTerm} /> : null}
+                    {isSearchFocused && searchTerm.length > 1 ? <SearchSuggestions setSearchVal={setSearchVal} searchTerm={searchTerm} /> : null}
                 </span>
             </div>
         </nav>

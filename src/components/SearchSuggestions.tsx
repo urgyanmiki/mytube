@@ -6,9 +6,10 @@ import { useGetSearchSuggestQuery } from "../services/shazamApi";
 
 interface SearchSuggestionProps {
     searchTerm: string
+    setSearchVal: (suggestion: string) => void
 }
 
-export const SearchSuggestions = ({ searchTerm }: SearchSuggestionProps) => {
+export const SearchSuggestions = ({ searchTerm, setSearchVal }: SearchSuggestionProps) => {
     const navigate = useNavigate();
     const { data, isLoading, error } = useGetSearchSuggestQuery(searchTerm);
 
@@ -21,7 +22,8 @@ export const SearchSuggestions = ({ searchTerm }: SearchSuggestionProps) => {
     }
 
     const handleOpenSearch = (suggestion: string) => {
-        const path = `/search/${suggestion}`
+        const path = `/search/${suggestion}`;
+        setSearchVal(suggestion);
         navigate(path);
     }
 
